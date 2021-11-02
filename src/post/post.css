@@ -1,0 +1,51 @@
+.post {
+    width:400px;
+    margin: 0 25px 40px 25px;
+}
+.postImg {
+    width: 100%;
+    height: 280px;
+    height:auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.postInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.postCat {
+    font-family: "Varela Round", sans-serif;
+    font-size: 12px;
+    color: #be9656;
+    line-height: 20px;
+    margin: 15px 10px 0 0;
+    cursor: pointer;
+}
+.postTitle {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.postDate {
+    font-family: "Lora", sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #999;
+    margin-top: 15px;
+}
+.postDescription {
+    font-family: "Varela Round", sans-serif;
+    font-size: 14px;
+    color: #444;
+    line-height: 24px;
+    margin-top: 15px;
+    /* 文章內容超過限制行數顯示省略號 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
