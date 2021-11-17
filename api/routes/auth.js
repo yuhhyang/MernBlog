@@ -17,5 +17,21 @@ router.post("/register", async (req, res) => {
         res.status(500).json(err);
     }
 })
-module.exports = router;
+
 // Login
+router.post("/login", async (req, res) => {
+    try{
+        // 查無使用者
+        const user = await User.findOne({username: req.body.username});
+        !user && res.status(400).json("Wrong credentials");
+        // 密碼不符
+        const validate = await bcrypt.compare(req.body.password, user.password);
+        !validate && res.status(400).json("Wrong credentials");
+        // 成功登入
+        res.status(200).json(user);
+    }catch(err){
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
