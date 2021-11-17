@@ -27,8 +27,9 @@ router.post("/login", async (req, res) => {
         // 密碼不符
         const validate = await bcrypt.compare(req.body.password, user.password);
         !validate && res.status(400).json("Wrong credentials");
-        // 成功登入
-        res.status(200).json(user);
+        // 成功登入，不顯示密碼給使用者
+        const { password, ...others } = user._doc;
+        res.status(200).json(others);
     }catch(err){
         res.status(500).json(err);
     }
