@@ -17,7 +17,7 @@ function App() {
     <Router>
         <TopBar/>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" exact element={<Home/>}/>
           <Route path="/register" element={user ? <Home/> : <Register/>}/>
           <Route path="/login" element={user ? <Home/> : <Login/>}/>
           <Route path="/settings" element={user ? <Settings/> : <Register/>}/>
