@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 
 dotenv.config();
-//app.use(express.json()); //有這行才能顯示 json 資料
+app.use(express.json()); //有這行才能顯示 json 資料
 
 mongoose.connect(process.env.MONGO_URL, {
     // Mongoose 6.0 拿掉 useNewUrlParser & useCreateIndex
