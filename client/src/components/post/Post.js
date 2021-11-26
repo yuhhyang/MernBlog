@@ -1,5 +1,6 @@
 import React from 'react';
 import './post.css';
+import { Link } from 'react-router-dom';
 export default function Post({ post }) {
     return (
         // 從資料庫抓文章分類,文章標題,圖片,發文時間 and 文章內容
@@ -14,9 +15,9 @@ export default function Post({ post }) {
                         <span className="postCat">{category.name}</span>
                     ))}
                 </div>
-                <span className="postTitle">
-                    {post.title}
-                </span>
+                <Link to={`post/${post._id}`} className="link">
+                    <span className="postTitle">{post.title}</span>
+                </Link>
                 <hr />
                 <span className="postDate">
                     {new Date(post.createdAt).toDateString()}
