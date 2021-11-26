@@ -1,29 +1,29 @@
-import React from 'react'
-import './post.css'
-export default function Post() {
+import React from 'react';
+import './post.css';
+export default function Post({ post }) {
     return (
+        // 從資料庫抓文章分類,文章標題,圖片,發文時間 and 文章內容
         <div className="post">
-            <img className="postImg" src="https://images.pexels.com/photos/1533720/pexels-photo-1533720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="" />
+            {/*文章有照片才會顯示照片*/
+            post.photo && (
+                <img className="postImg" src={post.photo} alt="" />
+            )}
             <div className="postInfo">
                 <div className="postCats">
-                    <span className="postCat">
-                        Music
-                    </span>
-                    <span className="postCat">
-                        Life
-                    </span>
+                    {post.categories.map(category => (
+                        <span className="postCat">{category.name}</span>
+                    ))}
                 </div>
                 <span className="postTitle">
-                    Lorem ipsum dolor sit amet
+                    {post.title}
                 </span>
                 <hr />
                 <span className="postDate">
-                    1 hour ago
+                    {new Date(post.createdAt).toDateString()}
                 </span>
             </div>
             <p className="postDescription">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nobis facilis sapiente veritatis consequuntur saepe ipsa, eligendi odit adipisci cupiditate molestias. Inventore, quam delectus! Vel nobis dicta cumque laboriosam ducimus?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nobis facilis sapiente veritatis consequuntur saepe ipsa, eligendi odit adipisci cupiditate molestias. Inventore, quam delectus! Vel nobis dicta cumque laboriosam ducimus?
+                {post.description}
             </p>
         </div>
     )

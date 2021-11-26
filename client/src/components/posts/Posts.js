@@ -3,9 +3,10 @@ import Post from '../post/Post';
 
 export default function Posts({ posts }) {
     return (
+        // 列出資料庫的所有文章
         <div className="posts">
             {posts.map(post => (
-                <Post/>
+                <Post post={post}/>
             ))}
         </div>
     )
