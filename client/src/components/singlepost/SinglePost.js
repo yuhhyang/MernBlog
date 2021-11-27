@@ -21,7 +21,6 @@ export default function SinglePost() {
                 {post.photo && (
                     <img src={post.photo} alt="" className="singlePostImg" />
                 )}
-                
                 <h1 className="singlePostTitle">
                     {post.title}
                     <div className="singlePostEdit">
@@ -30,7 +29,7 @@ export default function SinglePost() {
                     </div>
                 </h1>
                 <div className="singlePostInfo">
-                    <span className="singlePostAuthor">{post.username}<b>Safak</b></span>
+                    <span className="singlePostAuthor"><b>{post.username}</b></span>
                     <span className="singlePostDate">{new Date(post.createdAt).toDateString()}</span>
                 </div>
                 <p className="singlePostDescription">{post.description}</p>

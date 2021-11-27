@@ -6,7 +6,7 @@ export default function Sidebar() {
     useEffect(() => {
         const getCategories = async () => {
             const res = await axios.get("/categories");
-            setCategories(res.data)
+            setCategories(res.data);
         }
         getCategories();
     },[]);
