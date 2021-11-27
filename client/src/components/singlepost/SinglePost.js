@@ -29,7 +29,7 @@ export default function SinglePost() {
                     </div>
                 </h1>
                 <div className="singlePostInfo">
-                    <span className="singlePostAuthor"><b>{post.username}</b></span>
+                    <span className="singlePostAuthor">Author: <b>{post.username}</b></span>
                     <span className="singlePostDate">{new Date(post.createdAt).toDateString()}</span>
                 </div>
                 <p className="singlePostDescription">{post.description}</p>
