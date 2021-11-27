@@ -3,9 +3,11 @@ import { useLocation } from 'react-router';
 import axios from 'axios';
 import './singlePost.css';
 export default function SinglePost() {
+    // 抓 path
     const location = useLocation();
     const path = location.pathname.split("/")[2]; // /post/619cbd94013f5bb9ae22f5d6
     const [post, setPost] = useState({});
+    // 切換的文章 id 改變，url 也改變
     useEffect(() => {
         const getPost = async () => {
             const res = await axios.get(`/post/${path}`);
