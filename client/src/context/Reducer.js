@@ -12,11 +12,18 @@ const Reducer = (state, action) => {
                 isFetching: false,
                 error: false
             };
+        // 登入成功時 localstorage 會顯示登入者資訊，登出即變成 null
         case "LOGIN_FAILURE":
             return{
                 user: null,
                 isFetching: false,
                 error: true
+            };
+        case "LOGOUT":
+            return{
+                user: null,
+                isFetching: false,
+                error: false
             };
         default:
             return state;

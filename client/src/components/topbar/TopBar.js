@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 import { useContext } from 'react';
 export default function TopBar() {
-    const { user } = useContext(Context);
+    const { user, dispatch } = useContext(Context);
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+    };
     return (
         <div className="top">
             <div className="topLeft">
@@ -26,7 +29,7 @@ export default function TopBar() {
                     <li className="topListItem">
                         <Link className="link" to="/write">Write</Link>
                     </li>
-                    <li className="topListItem">
+                    <li className="topListItem" onClick={handleLogout}>
                         {user && "Logout"}
                     </li>
                 </ul>
