@@ -38,7 +38,7 @@ export default function TopBar() {
                 {user ? (
                     <img 
                     className="topImg"
-                    src="https://images.pexels.com/photos/3671083/pexels-photo-3671083.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                    src={user.profilePic}
                     alt=""/>
                     )
                     : (
