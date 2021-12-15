@@ -7,9 +7,10 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/post");
 const categoryRoute = require("./routes/categories"); 
 const multer = require("multer");
+const path = require("path");
 dotenv.config();
 app.use(express.json()); //有這行才能顯示 json 資料
-
+app.use("/images", express.static(path.join(__dirname, "/images")));
 mongoose.connect(process.env.MONGO_URL, {
     // Mongoose 6.0 拿掉 useNewUrlParser & useCreateIndex
     useUnifiedTopology: true
@@ -22,7 +23,7 @@ const storage = multer.diskStorage({
         cb(null, "images");
     },
     filename:(req,file,cb) => {
-        cb(null, "1.JPG");
+        cb(null, req.body.name);
     }
 });
 const upload = multer({ storage: storage });
